@@ -4,19 +4,18 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('todo_manager', '0001_initial'),
+        ("todo_manager", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='task',
-            options={'ordering': ['is_completed']},
+            name="task",
+            options={"ordering": ["is_completed"]},
         ),
         migrations.RenameField(
-            model_name='task',
-            old_name='datetime',
-            new_name='created_at',
+            model_name="task",
+            old_name="datetime",
+            new_name="created_at",
         ),
     ]

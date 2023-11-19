@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('todo_manager', '0002_alter_task_options_rename_datetime_task_created_at'),
+        ("todo_manager", "0002_alter_task_options_rename_datetime_task_created_at"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='task',
-            options={'ordering': ['is_completed', '-created_at']},
+            name="task",
+            options={"ordering": ["is_completed", "-created_at"]},
         ),
     ]
