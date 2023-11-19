@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 
 from todo_manager.forms import TaskCreateForm
 from todo_manager.models import Task, Tag
@@ -48,13 +49,13 @@ class TagDeleteView(generic.DeleteView):
     success_url = reverse_lazy("todo_manager:tag-list")
 
 
-def completing_task(request, pk):
-    task = Task.objects.get(id=pk)
-    if task.is_completed:
-        task.is_completed = False
-    else:
-        task.is_completed = True
-    task.save()
-    return HttpResponseRedirect(
-        reverse_lazy("todo_manager:task-list")
-    )
+class TaskCompletionView(generic.View):
+    model = Task
+
+    def get(self, request, pk, *args, **kwargs):
+        task = get_object_or_404(self.model, id=pk)
+        task.is_completed = not task.is_completed
+        task.save()
+        return HttpResponseRedirect(
+            reverse_lazy("todo_manager:task-list")
+        )

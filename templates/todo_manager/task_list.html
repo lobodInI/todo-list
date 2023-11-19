@@ -14,11 +14,11 @@
         <b>{{ task.content }}
           {% if task.is_completed %}
             <span class="completed">Done</span>
-            <a href="{% url 'todo-manager:completing-task' pk=task.id %}"
+            <a href="{% url 'todo-manager:completion-task' pk=task.id %}"
                class="btn btn-secondary link-to-page">Undo</a>
           {% else %}
             <span class="unfinished">Not done</span>
-            <a href="{% url 'todo-manager:completing-task' pk=task.id %}"
+            <a href="{% url 'todo-manager:completion-task' pk=task.id %}"
                class="btn btn-success link-to-page">Complete</a>
           {% endif %}
         </b>
