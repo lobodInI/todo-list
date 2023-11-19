@@ -1,0 +1,27 @@
+body {
+    margin-top: 20px;
+}
+
+.link-to-page {
+    float: right;
+}
+
+.completed {
+    color: lawngreen;
+}
+
+.unfinished {
+    color: red;
+}
+
+.deadline {
+    color: orangered;
+}
+
+.tags {
+    color: dimgrey;
+}
+
+.date-display {
+    font-size: 13px;
+}
